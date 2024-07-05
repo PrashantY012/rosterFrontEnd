@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { server } from '../../Middle'
 function ManagerAddRoster() {
     let [staffEmail,setStaffEmail]=useState("")
     let [date,SetDate]=useState("")
@@ -14,7 +15,7 @@ function ManagerAddRoster() {
         const options = { weekday: 'long' };
         const day = new Intl.DateTimeFormat('en-US', options).format(newdate);
         try{
-     const res=await  axios.post("http://localhost:3000/manager/addRoster",
+     const res=await  axios.post(`${server}/manager/addRoster`,
         {
           staffEmail,date,shift,day
         },{

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Context } from '../../Middle'
+import { Context, server } from '../../Middle'
 import { Navigate } from 'react-router-dom'
 import axios from 'axios';
 import RosterComponent from './smallerComponent/RosterComponent';
@@ -29,7 +29,7 @@ function ManagerRoster() {
   const {managerLogged}=useContext(Context)
   let [data,setData]=useState([]);
   useEffect(()=>{
-    axios.get("http://localhost:3000/manager/seeRoster",{
+    axios.get(`${server}/manager/seeRoster`,{
       withCredentials:true
     }).then((res)=>{
       setData(res.data.message)

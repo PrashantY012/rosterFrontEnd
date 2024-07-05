@@ -35,7 +35,7 @@
 // export default ManagerNav
 import React, { useContext, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { Context } from '../../Middle';
+import { Context, server } from '../../Middle';
 import axios from 'axios';
 
 function ManagerNav() {
@@ -44,7 +44,7 @@ function ManagerNav() {
 
     function clickFunc(e) {
         e.preventDefault();
-        axios.get("http://localhost:3000/manager/managerLogout", {
+        axios.get(`${server}/manager/managerLogout`, {
             withCredentials: true,
         }).then(() => {
             setManagerLogged(false);

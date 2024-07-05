@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import AttendanceComp from './smallerComponent/AttendanceComp'
-import { Context } from '../../Middle';
+import { Context, server } from '../../Middle';
 import { Navigate } from 'react-router-dom';
 
 const Header = () => {
@@ -29,7 +29,7 @@ function ManagerSeeAttendance() {
  
   const [imagesArr,setImagesArr]=useState([])
   useEffect(()=>{
-    axios.get("http://localhost:3000/manager/getAllAttendance",{withCredentials:true})
+    axios.get(`${server}/manager/getAllAttendance`,{withCredentials:true})
     .then((res)=>{
       setImagesArr(()=>res.data.message)
     })

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Context } from '../../Middle';
+import { Context, server } from '../../Middle';
 import { Navigate } from 'react-router-dom';
 
 function ManagerSignin() {
@@ -13,7 +13,7 @@ function ManagerSignin() {
         e.preventDefault();
         try {
             const responseData = await axios.post(
-                `http://localhost:3000/manager/login`,
+                `${server}/manager/login`,
                 {
                     "email": email,
                     "password": password,

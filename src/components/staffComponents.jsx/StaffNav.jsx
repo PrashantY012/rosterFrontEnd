@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useState } from 'react'
 import { Link, NavLink, Navigate } from 'react-router-dom'
-import { Context } from '../../Middle'
+import { Context, server } from '../../Middle'
 import axios from 'axios'
 function StaffNav() {
   const {setStaffLogged,staffLogged,setStaffName}=useContext(Context)
@@ -11,7 +11,7 @@ function StaffNav() {
   function clickFunc(e){
     e.preventDefault();
       axios.get(
-        `http://localhost:3000/staff/staffLogout`,
+        `${server}/staff/staffLogout`,
           {withCredentials: true,}
       ).then((e)=>{
         setStaffLogged(()=>false)

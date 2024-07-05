@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
-import { Context } from '../../Middle';
+import { Context, server } from '../../Middle';
 import { Navigate } from 'react-router-dom';
 import StaffComponent from './smallerComponent/StaffComponent';
 
@@ -25,7 +25,7 @@ function ManagerDeleteStaff() {
     const {managerLogged}=useContext(Context)
     const [data,setData]=useState([])
     useEffect(()=>{
-             axios.get("http://localhost:3000/manager/getAllStaff",{
+             axios.get(`${server}/manager/getAllStaff`,{
                 withCredentials:true
             })
             .then((res)=>{

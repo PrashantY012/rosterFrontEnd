@@ -5,7 +5,7 @@ import Home from './components/Home'
 import StaffLogin from './components/StaffLogin'
 import ManagerLogin from './components/ManagerLogin'
 import toast, { Toaster } from 'react-hot-toast';
-import { Context } from './Middle'
+import { Context, server } from './Middle'
 import StaffRoster from './components/staffComponents.jsx/StaffRoster'
 import axios from 'axios'
 import StaffNav from './components/staffComponents.jsx/StaffNav'
@@ -32,7 +32,7 @@ function App() {
 
   useEffect(() => {
     axios.get(
-      `http://localhost:3000/staff/staffSelf`,
+      `${server}/staff/staffSelf`,
       { withCredentials: true, }
     ).then((e) => {
       setStaffLogged(() => true)
@@ -46,7 +46,7 @@ function App() {
     , [])
     useEffect(() => {
       axios.get(
-        `http://localhost:3000/manager/managerSelf`,
+        `${server}manager/managerSelf`,
         { withCredentials: true, }
       ).then((e) => {
         setManagerLogged(() => true)

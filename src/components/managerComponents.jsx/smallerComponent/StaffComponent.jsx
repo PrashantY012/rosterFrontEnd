@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React from 'react'
 import toast from 'react-hot-toast';
+import { server } from '../../../Middle';
 
 function StaffComponent({name,email}) {
     let staffEmail=email;
     async function clickFunc()
     {
        try{
-        const res=await axios.post("http://localhost:3000/manager/deleteStaff",{
+        const res=await axios.post(`${server}/manager/deleteStaff`,{
             staffEmail
         },{
             headers:{

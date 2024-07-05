@@ -6,6 +6,7 @@ import {
     RouterProvider,
 } from "react-router-dom";
 export const Context = React.createContext();
+export const server="http://localhost:3000";
 function Middle() {
 
     const [staffLogged, setStaffLogged] = useState(false);

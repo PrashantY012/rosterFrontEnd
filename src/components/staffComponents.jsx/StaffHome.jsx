@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Context } from '../../Middle'
+import { Context, server } from '../../Middle'
 import axios from 'axios';
 import { Navigate, NavLink } from 'react-router-dom';
 export default function StaffHome() {
   const [staffName,setStaffName]=useState("None")
     useEffect(()=>{
       axios.get(
-        `http://localhost:3000/staff/staffSelf`,
+        `${server}/staff/staffSelf`,
         { withCredentials: true, }
       ).then((e) => {
         setStaffName(() => e.data.message)

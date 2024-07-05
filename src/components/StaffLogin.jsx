@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom';
 import axios from "axios"
 import toast, { Toaster } from 'react-hot-toast';
-import { Context } from '../Middle';
+import { Context, server } from '../Middle';
 
 function StaffLogin() { 
     const [email,setEmail]=useState("");
@@ -20,7 +20,7 @@ function StaffLogin() {
         // console.log("clicked")
         try{
         const responseData = await axios.post(
-            `http://localhost:3000/staff/Login`,
+            `${server}/staff/Login`,
             {
               "email":email,
               "password":password,

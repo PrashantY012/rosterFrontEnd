@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { Navigate, NavLink } from 'react-router-dom';
-import { Context } from '../../Middle';
+import { Context, server } from '../../Middle';
 import StaffRosterSubComp from './StaffRosterSubComp';
 
 const Header = () => {
@@ -29,9 +29,8 @@ function StaffRoster() {
   useEffect(()=>{
     
        axios.get(
-          `http://localhost:3000/staff/seeRoster`,
+          `${server}/staff/seeRoster`,
           {
-           
             withCredentials: true,
           }
         ).then((res)=>{

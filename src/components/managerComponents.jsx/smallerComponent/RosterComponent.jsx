@@ -1,10 +1,11 @@
 import axios from 'axios'
 import React from 'react'
+import { server } from '../../../Middle'
 
 export default function RosterComponent({staffEmail,date,day,shift,_id}) {
     const clickFunc=async()=>{
         try{
-        await axios.post("http://localhost:3000/manager/deleteRosterEntry",{
+        await axios.post(`${server}/manager/deleteRosterEntry`,{
             _id
         },
         {

@@ -97,7 +97,7 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { Context } from '../../Middle';
+import { Context, server } from '../../Middle';
 import { Navigate } from 'react-router-dom';
 
 function StaffAttendance() {
@@ -140,7 +140,7 @@ function StaffAttendance() {
 
   const saveImage = () => {
     if (!image) return;
-    axios.post('http://localhost:3000/staff/staffAttendance', { img: image }, { withCredentials: true })
+    axios.post(`${server}/staff/staffAttendance`, { img: image }, { withCredentials: true })
       .then(response => {
         console.log('Image saved successfully', response.data);
         toast.success("Attendance taken successfully")

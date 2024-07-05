@@ -1,13 +1,13 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import { Context } from '../../Middle'
+import { Context, server } from '../../Middle'
 import { Navigate } from 'react-router-dom'
 function ManagerHome() {
   const {managerLogged}=useContext(Context)
 
   const [name,setName]=useState("None")
   useEffect(() => {
-    axios.get("http://localhost:3000/manager/managerSelf",{
+    axios.get(`${server}/manager/managerSelf`,{
       withCredentials:true
     }).then((res)=>{
       setName(res.data.message)
