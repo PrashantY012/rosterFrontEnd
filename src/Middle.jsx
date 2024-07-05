@@ -6,10 +6,10 @@ import {
     RouterProvider,
 } from "react-router-dom";
 export const Context = React.createContext();
-export const server=import.meta.env.VITE_SERVER;
+export const server="https://rosterbackendnodejs.onrender.com";
 // console.log("server",server)
 function Middle() {
-
+    
     const [staffLogged, setStaffLogged] = useState(false);
     const [managerLogged, setManagerLogged] = useState(false);
     const [value2, setValue2] = useState("");
