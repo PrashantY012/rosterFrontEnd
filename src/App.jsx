@@ -29,7 +29,6 @@ function App() {
   const { managerName, setManagerName } = useContext(Context)
   
   
-
   useEffect(() => {
     axios.get(
       `${server}/staff/staffSelf`,
